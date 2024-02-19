@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import Container from "./ui/container";
@@ -36,9 +35,9 @@ const Header = () => {
               </SheetTrigger>
               <SheetContent side="left" className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col gap-4">
-                  {routes.map((route, i) => (
+                  {routes.map((route) => (
                     <Link
-                      key={i}
+                      key={route.label}
                       href={route.href}
                       className="block px-2 py-1 text-lg"
                     >
@@ -49,14 +48,13 @@ const Header = () => {
               </SheetContent>
             </Sheet>
             <Link href="/" className="ml-4 lg:ml-0">
-              <h1 className="text-xl font-bold">STORE NAME</h1>
+              <h1 className="text-xl font-bold">QuixCart</h1>
             </Link>
           </div>
           <nav className="mx-6 flex items-center space-x-4 lg:space-x-6 hidden md:block">
-            {routes.map((route, i) => (
-              <Button asChild variant="ghost">
+            {routes.map((route) => (
+              <Button key={route.label} asChild variant="ghost">
                 <Link
-                  key={i}
                   href={route.href}
                   className="text-sm font-medium transition-colors"
                 >
